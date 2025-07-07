@@ -1,0 +1,25 @@
+.home {
+    width: 500px;
+    height: 100%;
+    background: url(../../public/img/title.png) center / contain no-repeat;
+
+    .startBtn {
+        position: relative;
+        margin: 0px auto 0;
+        width: fit-content;
+        padding: 10px 50px;
+        top: 550px;
+        font-size: 50px;
+        color: #42403D;
+        outline: 2px solid #c2b9b9;
+        background: #fff;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .startBtn:hover {
+        transform: scale(1.05);
+    }
+}

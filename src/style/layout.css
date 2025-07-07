@@ -1,0 +1,21 @@
+body, html {
+    margin: 0;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+
+    #root {
+        padding: 0;
+    }
+}
+
+.home {
+    max-width: 500px;
+    min-height: 100vh;
+    font-family: 'bitbit';
+}
+
+@font-face{
+   font-family:'bitbit';
+   src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
