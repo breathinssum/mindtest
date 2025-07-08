@@ -1,0 +1,28 @@
+.test {
+    width: 500px;
+    height: 100%;
+    background: url(../../public/img/question.png) center / contain no-repeat;
+}
+
+.question {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.option1, .option2 {
+  padding: 15px 30px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.option1:hover, .option2:hover {
+  background-color: #ddd;
+}

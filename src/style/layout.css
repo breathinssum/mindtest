@@ -9,7 +9,7 @@ body, html {
     }
 }
 
-.home {
+.home, .test {
     max-width: 500px;
     min-height: 100vh;
     font-family: 'bitbit';
