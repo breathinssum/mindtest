@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../style/test.css';
 
 const questions = [
@@ -26,29 +27,43 @@ const options2 = [
   '그냥 지나치자', '뭐?', '가끔 그래...', '최소 하루?', '나는 쓰거든?', '로맨스 좋아',
 ];
 
+const getResultIndex = (score: number): number => {
+  if (score <= 14) return 0;
+  if (score <= 17) return 1;
+  if (score <= 20) return 2;
+  if (score <= 23) return 3;
+  if (score <= 26) return 4;
+  if (score <= 29) return 5;
+  if (score <= 32) return 6;
+  return 7;
+};
+
 const Test: React.FC = () => {
   const [index, setIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const navigate = useNavigate();
 
-  const handleClick = (answer: string) => {
-    console.log(`Q${index + 1}에서 선택한 답: ${answer}`);
+  const handleClick = (selectedOption: number) => {
+    const addedScore = selectedOption === 1 ? 3 : 1;
+    const newScore = score + addedScore;
+    setScore(newScore);
+
     if (index < questions.length - 1) {
       setIndex(index + 1);
     } else {
-      console.log('모든 질문이 끝났습니다.');
-      // 여기에 결과 페이지 이동 등 추가 가능
+      const resultIndex = getResultIndex(newScore);
+      navigate(`/result?result=${resultIndex}`);
     }
   };
+
 
   return (
     <div className='test'>
       <div className='question'>{questions[index]}</div>
       <div className='select'>
-        <div className='option1' onClick={() => handleClick(options1[index])}>
-          {options1[index]}
-        </div>
-        <div className='option2' onClick={() => handleClick(options2[index])}>
-          {options2[index]}
-        </div>
+        <div className='option1' onClick={() => handleClick(1)}>{options1[index]}</div>
+        <div className='option2' onClick={() => handleClick(2)}>{options2[index]}</div>
+
       </div>
     </div>
   );

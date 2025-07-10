@@ -1,28 +1,51 @@
 .test {
-    width: 500px;
-    height: 100%;
-    background: url(../../public/img/question.png) center / contain no-repeat;
+  width: 500px;
+  height: 100%;
+  color: #42403D;
+  background: url(../../public/img/question.png) center / contain no-repeat;
 }
 
 .question {
-  font-size: 24px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  top: 240px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 320px;
+  height: 180px;
+  word-break: keep-all;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 35px;
   margin-bottom: 20px;
 }
 
 .select {
-  display: flex;
+  display: grid;
+  position: relative;
+  top: 340px;
+  font-size: 30px;
   justify-content: center;
   gap: 20px;
 }
 
-.option1, .option2 {
+.option1,
+.option2 {
   padding: 15px 30px;
+  width: 300px;
   background-color: #eee;
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s;
 }
 
-.option1:hover, .option2:hover {
+.option1:hover,
+.option2:hover {
   background-color: #ddd;
+}
+
+img {
+  width: 430px;
 }

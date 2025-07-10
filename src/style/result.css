@@ -1,0 +1,17 @@
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.retry, .all {
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
