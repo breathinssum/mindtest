@@ -1,3 +1,17 @@
+.result {
+  width: 500px;
+  height: 100%;
+  color: #42403D;
+  background: url(../../public/img/result.png) center / contain no-repeat;
+}
+
+.result-container {
+  position: relative;
+  margin: 0 auto;
+  top: 190px;
+  outline: 2px solid #ddd;
+}
+
 .overlay {
   position: absolute;
   bottom: 50px;
@@ -9,7 +23,7 @@
 
 .retry, .all {
   padding: 10px 20px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;

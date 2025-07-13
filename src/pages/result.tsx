@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import result0 from '../../public/img/008.png';
 import result1 from '../../public/img/007.png';
@@ -21,13 +21,35 @@ const Result: React.FC = () => {
   const resultIndex = parseInt(params.get('result') || '0', 10);
   const backgroundImage = resultImages[resultIndex];
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => {
+      setIsLoaded(true);
+    };
+  }, [backgroundImage]);
+
+  if (!isLoaded) {
+    return <div className="result" style={{ height: '100vh', backgroundColor: '#fff' }} />;
+  }
+
   return (
-    <div className="result-container" style={{ background: `url(${backgroundImage}) center / contain no-repeat`, width: `500px`, height: `910px`, objectFit: `contain` }}>
+    <div className="result">
+      <div
+        className='result-container'
+        style={{
+          background: `url(${backgroundImage}) center / contain no-repeat`,
+          width: `284px`,
+          height: `600px`,
+        }}
+      ></div>
       <div className="overlay">
         <NavLink to="/">
           <div className="retry">다시하기</div>
         </NavLink>
-        <NavLink to="/result">
+        <NavLink to="/resultall">
           <div className="all">전체 결과 보기</div>
         </NavLink>
       </div>
