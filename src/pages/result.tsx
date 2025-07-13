@@ -22,6 +22,7 @@ const Result: React.FC = () => {
   const backgroundImage = resultImages[resultIndex];
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const img = new Image();
@@ -45,14 +46,26 @@ const Result: React.FC = () => {
           height: `600px`,
         }}
       ></div>
+
       <div className="overlay">
         <NavLink to="/">
           <div className="retry">다시하기</div>
         </NavLink>
-        <NavLink to="/resultall">
-          <div className="all">전체 결과 보기</div>
-        </NavLink>
+        <div className="all" onClick={() => setShowPopup(true)}>전체 결과 보기</div>
       </div>
+
+      {showPopup && (
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+          <div className="popup" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setShowPopup(false)}>닫기</button>
+            <div className="popup-images">
+              {resultImages.map((img, index) => (
+                <img key={index} src={img} alt={`결과 ${index + 1}`} />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

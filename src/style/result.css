@@ -1,7 +1,6 @@
 .result {
   width: 500px;
   height: 100%;
-  color: #42403D;
   background: url(../../public/img/result.png) center / contain no-repeat;
 }
 
@@ -25,7 +24,57 @@
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
+  color: #42403D;
   cursor: pointer;
   font-weight: bold;
   text-align: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.popup {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  max-width: 380px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  position: fixed;
+  top: 82px;
+  right: 300px;
+  background: #eee;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.popup-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.popup-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
